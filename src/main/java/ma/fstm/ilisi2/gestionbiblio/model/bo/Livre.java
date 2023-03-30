@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -21,5 +23,6 @@ public class Livre {
     @Column(nullable = false)
     private String titre;
     private String auteur;
-
+    @OneToMany(mappedBy = "livre", fetch = FetchType.EAGER)
+    private Set<Exemplaire> exemplaires;
 }

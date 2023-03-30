@@ -2,6 +2,7 @@ package ma.fstm.ilisi2.gestionbiblio.controller;
 
 
 import ma.fstm.ilisi2.gestionbiblio.model.bo.Livre;
+import ma.fstm.ilisi2.gestionbiblio.model.services.AdherentService;
 import ma.fstm.ilisi2.gestionbiblio.model.services.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,8 @@ public class Bibliotheque {
     /// Injects the service on execution
     @Autowired
     private LivreService livreService;
+    @Autowired
+    private AdherentService adherentService;
 
     @RequestMapping("/")
     public String viewHomePage(Model model){
@@ -55,7 +58,7 @@ public class Bibliotheque {
     }
 
     @RequestMapping("/delete/{id}")
-    public String deleteProduct(@PathVariable(name = "id") int id) {
+    public String deleteLivre(@PathVariable(name = "id") int id) {
         livreService.delete(id);
         return "redirect:/";
     }
