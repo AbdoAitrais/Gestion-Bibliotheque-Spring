@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Manager</title>
+</head>
+<body>
+
+<div align="center">
+
+    <h1>Adherent List</h1>
+    <a href="/newAdherent">Create new adherent</a>
+    <br><br>
+    <table border="1" cellpadding="10">
+
+        <thead>
+
+        <th>Adherent Id</th>
+        <th>Adherent Prenom</th>
+        <th>Adherent Nom</th>
+        <th>Actions</th>
+
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="adherent : ${listAdherents}">
+
+            <td th:text="${adherent.id}">Adherent ID</td>
+            <td th:text="${adherent.prenomAdherent}">Adherent Prenom</td>
+            <td th:text="${adherent.nomAdherent}">Adherent Nom</td>
+            <td>
+                <a th:href="@{'/editAdherent/' + ${adherent.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/deleteAdherent/' + ${adherent.id}}">Delete</a>
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

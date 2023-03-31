@@ -29,9 +29,9 @@ public class LivreService {
         repoLivre.save(livre);
     }
 
-    public void save(Livre livre,int examplaires){
+    public void save(Livre livre,long examplaires){
         repoLivre.save(livre);
-        for (int i = 0; i < examplaires; i++) {
+        for (long i = 0; i < examplaires; i++) {
             repoExamplaire.save(new Exemplaire(livre,true));
         }
     }

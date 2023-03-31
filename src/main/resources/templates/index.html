@@ -19,6 +19,7 @@
                 <th>Book ISBN</th>
                 <th>Book Title</th>
                 <th>Book Author</th>
+                <th>Book Examples</th>
                 <th>Actions</th>
 
 
@@ -32,6 +33,7 @@
                     <td th:text="${book.isbn}">Book ISBN</td>
                     <td th:text="${book.titre}">Book Title</td>
                     <td th:text="${book.auteur}">Book Aurhor</td>
+                    <td th:text="${book.getExemplaires().size()}">Book Examples</td>
                     <td>
                         <a th:href="@{'/edit/' + ${book.id}}">Edit</a>
                         &nbsp;&nbsp;&nbsp;

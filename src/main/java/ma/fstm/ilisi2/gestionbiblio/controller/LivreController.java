@@ -7,17 +7,14 @@ import ma.fstm.ilisi2.gestionbiblio.model.services.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Optional;
 
 @Controller
-public class Bibliotheque {
+public class LivreController {
 
     /// Injects the service on execution
     @Autowired
@@ -37,16 +34,21 @@ public class Bibliotheque {
     public String showNewLivrePage(Model model){
         Livre livre = new Livre();
         model.addAttribute("book",livre);
-
         return "new_livre";
     }
 
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveLivre(@ModelAttribute("book") Livre livre){
-        livreService.save(livre);
-
+    public String saveLivre(@ModelAttribute("book") Livre livre, @RequestParam("nbrExamples") long nbrExamples){
+        livreService.save(livre,  nbrExamples);
         return "redirect:/";
     }
+
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public String updateLivre(@ModelAttribute("book") Livre livre){
+        livreService.save(livre);
+        return "redirect:/";
+    }
+
 
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditLivrePage(@PathVariable(name = "id") Long id){
