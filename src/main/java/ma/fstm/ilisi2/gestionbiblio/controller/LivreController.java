@@ -2,7 +2,6 @@ package ma.fstm.ilisi2.gestionbiblio.controller;
 
 
 import ma.fstm.ilisi2.gestionbiblio.model.bo.Livre;
-import ma.fstm.ilisi2.gestionbiblio.model.services.AdherentService;
 import ma.fstm.ilisi2.gestionbiblio.model.services.LivreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,19 +14,15 @@ import java.util.Optional;
 
 @Controller
 public class LivreController {
-
-    /// Injects the service on execution
     @Autowired
     private LivreService livreService;
-    @Autowired
-    private AdherentService adherentService;
 
-    @RequestMapping("/")
+    @RequestMapping("/livre")
     public String viewHomePage(Model model){
         List<Livre> listLivres = livreService.listAll();
         model.addAttribute("bookList",listLivres);
 
-        return "index";
+        return "livre";
     }
 
     @RequestMapping("/new")
@@ -40,13 +35,13 @@ public class LivreController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveLivre(@ModelAttribute("book") Livre livre, @RequestParam("nbrExamples") long nbrExamples){
         livreService.save(livre,  nbrExamples);
-        return "redirect:/";
+        return "redirect:/livre";
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public String updateLivre(@ModelAttribute("book") Livre livre){
         livreService.save(livre);
-        return "redirect:/";
+        return "redirect:/livre";
     }
 
 
@@ -62,7 +57,7 @@ public class LivreController {
     @RequestMapping("/delete/{id}")
     public String deleteLivre(@PathVariable(name = "id") int id) {
         livreService.delete(id);
-        return "redirect:/";
+        return "redirect:/livre";
     }
 
 }

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new Emprunt</title>
+</head>
+<body>
+
+<div align="center">
+
+    <h1>Create New Emprunt</h1>
+
+    <form action="#" th:action="@{/saveEmprunt}" th:object="${emprunt}"
+          method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Emprunt Adherent :</td>
+                <td>
+                    <select class="form-control" id="dropDownListAdherents" name="idAdherent">
+                        <option value="0">select option</option>
+                        <option th:each="adher : ${adherents}" th:value="${adher.id}" th:text="${adher.prenomAdherent}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Emprunt Livre :</td>
+                <td>
+                    <select class="form-control" id="dropDownList" name="idExample">
+                        <option value="0">select option</option>
+                        <option th:each="example : ${examples}" th:value="${example.id}" th:text="${example.livre.titre}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Return Date :</td>
+                <td><input type="date" min="1" name="dateRetourStr" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+
+        </table>
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,9 +1,11 @@
 package ma.fstm.ilisi2.gestionbiblio.model.services;
 
+
 import jakarta.transaction.Transactional;
 import ma.fstm.ilisi2.gestionbiblio.model.bo.Adherent;
-import ma.fstm.ilisi2.gestionbiblio.model.bo.Exemplaire;
-import ma.fstm.ilisi2.gestionbiblio.model.dao.ExemplaireRepository;
+import ma.fstm.ilisi2.gestionbiblio.model.bo.Emprunt;
+import ma.fstm.ilisi2.gestionbiblio.model.dao.AdherentRepository;
+import ma.fstm.ilisi2.gestionbiblio.model.dao.EmpruntRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,22 +14,23 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class ExemplaireService {
+public class EmpruntService {
     @Autowired
-    ExemplaireRepository repo;
-    public List<Exemplaire> listAll(){
+    private EmpruntRepository repo;
+
+    public List<Emprunt> listAll(){
         return repo.findAll();
     }
 
-    public void save(Exemplaire exemplaire){
-        repo.save(exemplaire);
+    public void save(Emprunt emprunt){
+        repo.save(emprunt);
     }
 
     public void delete(long id){
         repo.deleteById(id);
     }
 
-    public Optional<Exemplaire> get(long id){
+    public Optional<Emprunt> get(long id){
         return repo.findById(id);
     }
 }

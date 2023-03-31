@@ -18,12 +18,12 @@ public class Emprunt implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_adherent")
     @ToString.Exclude
     private Adherent adherent;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_exemplaire")
     @ToString.Exclude
     private Exemplaire exemplaire;

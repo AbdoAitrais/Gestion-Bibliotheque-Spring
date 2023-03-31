@@ -29,7 +29,7 @@ public class AdherentController {
     }
 
     @RequestMapping("/newAdherent")
-    public String showNewLivrePage(Model model){
+    public String showNewAdherentPage(Model model){
         Adherent adherent = new Adherent();
         model.addAttribute("adherent",adherent);
 
@@ -44,7 +44,7 @@ public class AdherentController {
     }
 
     @RequestMapping("/editAdherent/{id}")
-    public ModelAndView showEditLivrePage(@PathVariable(name = "id") Long id){
+    public ModelAndView showEditAdherentPage(@PathVariable(name = "id") Long id){
         ModelAndView mav = new ModelAndView("edit_adherent");
         Optional<Adherent> adherent = adherentService.get(id);
         mav.addObject("adherent",adherent);

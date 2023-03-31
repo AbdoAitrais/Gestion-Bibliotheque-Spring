@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Library Manager</title>
+</head>
+<body>
+
+<div align="center">
+
+  <h1>Emprunt List</h1>
+  <a href="/newEmprunt">Create new Emprunt</a>
+  <br><br>
+  <table border="1" cellpadding="10">
+
+    <thead>
+
+    <th>Emprunt Id</th>
+    <th>Emprunt Adherent</th>
+    <th>Emprunt Livre</th>
+    <th>Emprunt Date d'Emprunt</th>
+    <th>Emprunt Date de Retour</th>
+    <th>Actions</th>
+
+
+    </thead>
+
+    <tbody>
+
+    <tr th:each="emprunt : ${empruntList}">
+
+      <td th:text="${emprunt.id}">Emprunt ID</td>
+      <td th:text="${emprunt.adherent.nomAdherent}">Emprunt Adherent</td>
+      <td th:text="${emprunt.exemplaire.livre.titre}">Emprunt Livre</td>
+      <td th:text="${emprunt.dateEmprunt}">Emprunt Date</td>
+      <td th:text="${emprunt.dateRetour}">Return Date</td>
+      <td>
+        <a th:href="@{'/editEmprunt/' + ${emprunt.id}}">Edit</a>
+        &nbsp;&nbsp;&nbsp;
+        <a th:href="@{'/deleteEmprunt/' + ${emprunt.id}}">Delete</a>
+      </td>
+
+    </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+</body>
+</html>
