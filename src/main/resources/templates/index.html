@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add new Adherent</title>
+    <title>Library Management</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet" >
 </head>
-<body>
-
 <style>
     .nav{
         padding: 1%;
@@ -25,45 +23,25 @@
         border: darkgrey 1px solid;
     }
 </style>
-
+<body>
 <ul class="nav nav-underline">
     <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="/">Home Page</a>
+        <a class="nav-link active" aria-current="page" href="/">Home Page</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="/livre">Books</a>
+        <a class="nav-link " href="/livre">Books</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link active" href="/adherent">Adherents</a>
+        <a class="nav-link" href="/adherent">Adherents</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="/emprunt">Emprunts</a>
     </li>
 </ul>
 
-<div align="center">
-
-    <h1>Create New adherent</h1>
-
-    <form action="#" th:action="@{/saveAdherent}" th:object="${adherent}"
-          method="post">
-        <table border="0" cellpadding="10">
-            <tr>
-                <td>Adherent Prenom :</td>
-                <td><input class="form-control" type="text" th:field="*{prenomAdherent}" /></td>
-            </tr>
-            <tr>
-                <td>Adherent Nom :</td>
-                <td><input class="form-control" type="text" th:field="*{nomAdherent}" /></td>
-            </tr>
-            <tr>
-                <td colspan="2"><button class="btn btn-dark" type="submit">Save</button> </td>
-            </tr>
-
-        </table>
-    </form>
-
-</div>
+    <div>
+        <h1 class="welcome">Welcome To ILSI Library</h1>
+    </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 </body>

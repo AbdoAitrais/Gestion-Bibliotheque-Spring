@@ -71,13 +71,13 @@ public class EmpruntController {
     }
 
 
-    @RequestMapping("/editEmprunt/{id}")
-    public ModelAndView showEditEmpruntPage(@PathVariable(name = "id") Long id){
-        ModelAndView mav = new ModelAndView("edit_emprunt");
-        Optional<Emprunt> emprunt = empruntService.get(id);
-        mav.addObject("emprunt",emprunt);
-
-        return mav;
+    @RequestMapping("/returnEmprunt/{id}")
+    public String showReturnEmpruntPage(@PathVariable(name = "id") Long id){
+        Emprunt emprunt = empruntService.get(id).get();
+        Exemplaire e = emprunt.getExemplaire();
+        e.setDisponible(true);
+        exemplaireService.save(e);
+        return "redirect:/emprunt";
     }
 
     @RequestMapping("/deleteEmprunt/{id}")

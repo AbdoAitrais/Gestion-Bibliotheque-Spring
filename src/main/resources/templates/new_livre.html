@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Add new book</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" >
 </head>
 <body>
+
+<style>
+  .nav{
+    padding: 1%;
+    background-color: white;
+  }
+  body{
+    background-color: whitesmoke;
+  }
+  h1{
+    text-align: center;
+    font-weight: bold;
+  }
+  table{
+    width: 70%!important;
+    border: darkgrey 1px solid;
+  }
+</style>
+
+<ul class="nav nav-underline">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" href="/">Home Page</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="/livre">Books</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/adherent">Adherents</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/emprunt">Emprunts</a>
+  </li>
+</ul>
 
   <div align="center">
 
@@ -15,22 +50,22 @@
       <table border="0" cellpadding="10">
         <tr>
           <td>Book Title :</td>
-          <td><input type="text" th:field="*{titre}" /></td>
+          <td><input class="form-control" type="text" th:field="*{titre}" /></td>
         </tr>
         <tr>
           <td>ISBN :</td>
-          <td><input type="text" th:field="*{isbn}" /></td>
+          <td><input class="form-control" type="text" th:field="*{isbn}" /></td>
         </tr>
         <tr>
           <td>Author :</td>
-          <td><input type="text" th:field="*{auteur}" /></td>
+          <td><input class="form-control" type="text" th:field="*{auteur}" /></td>
         </tr>
         <tr>
           <td>Exemples :</td>
-          <td><input type="number" min="1" name="nbrExamples" /></td>
+          <td><input class="form-control" type="number" min="1" name="nbrExamples" /></td>
         </tr>
         <tr>
-          <td colspan="2"><button type="submit">Save</button> </td>
+          <td colspan="2"><button class="btn btn-dark" type="submit">Save</button> </td>
         </tr>
 
       </table>
@@ -38,5 +73,6 @@
 
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 </body>
 </html>

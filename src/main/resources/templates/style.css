@@ -1,0 +1,15 @@
+.nav{
+    padding: 1%;
+    background-color: white;
+}
+body{
+    background-color: whitesmoke;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+}
+table{
+    width: 70%!important;
+    border: darkgrey 1px solid;
+}
